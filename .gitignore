@@ -1,0 +1,5 @@
+config/
+testing/
+uploads/
+node_modules/
+.env
