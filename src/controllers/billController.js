@@ -4,6 +4,10 @@ const { extractText } = require('../services/ocrService');
 const { parseBill } = require('../services/openaiService');
 
 const analyzeBill = async (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ error: 'No image file provided' });
+  }
+
   const filePath = path.join(__dirname, '../../uploads', req.file.filename);
   const languageHints = req.body.languages ? JSON.parse(req.body.languages) : ['en'];
 
