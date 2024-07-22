@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  checkmate-insight:
+    image: checkmate-insight:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: checkmate-insight
+    ports:
+      - 3000:3000
+    volumes:
+      - ./config:/usr/src/app/config
+    env_file:
+      - .env
+    restart: unless-stopped
