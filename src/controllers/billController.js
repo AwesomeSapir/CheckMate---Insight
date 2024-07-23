@@ -13,10 +13,12 @@ const analyzeBill = async (req, res) => {
 
   try {
     console.info(`Extracting text from image (languages: ${languageHints})...`);
-    const lines = await extractText(filePath, languageHints);
+    const extractedText = await extractText(filePath, languageHints);
+
+    console.debug(`Extracted text: \n${extractedText}`);
 
     console.info('Parsing bill with OpenAI...');
-    const parsedBill = await parseBill(lines);
+    const parsedBill = await parseBill(extractedText);
 
     console.debug(`Parsed bill: \n${parsedBill}`);
 

@@ -12,7 +12,9 @@ const parseBill = async (lines) => {
   ${lines.join("\n")}
 
   Output:
-  json format containing array 'items' with every object having the following properties: 
+  json format containing:
+  string 'title' with the bill title (restaurant name etc.)
+  array 'items' with every object having the following properties: 
   item // the item name
   amount // if none or null then 1)
   price // the total price

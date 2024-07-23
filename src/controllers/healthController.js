@@ -1,4 +1,4 @@
-const healthCheck = (req, res) => {
+const healthCheck = async (req, res) => {
     const healthStatus = {
         status: "ok",
         timestamp: new Date().toISOString()
